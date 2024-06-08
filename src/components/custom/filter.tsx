@@ -1,23 +1,25 @@
+"use client"
 import { fetchDataFromAPI } from '@/utils/api';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import FilteringOptions from './filteringOptions';
+import { useProductStore } from '@/lib/store/store';
 
-export default async function Filter() {
-  let categories:[] = []; // Your list of categories
+export default function Filter() {
+  const [categories, setCategories] = useState([])
+  const updateProducts = useProductStore((state:any)=>state.updateProducts)
 
-  let res = await getData()
+  useEffect(() => {
+    let getData = async ()=>{
+      let res = await fetchDataFromAPI("/categories");
+      setCategories(res?.data)
+    }
+    getData()
+  }, [])
 
-  categories = res?.data
-
-  const handleSort = (sortOption:any) => {
-    // Implement your sorting logic here
-    // Update the 'products' state accordingly
-  };
-
-  const handleCategoryChange = (category:any) => {
-    console.log(category);
-    // Implement your filtering logic by category here
-    // Update the 'products' state accordingly
+  const handleCategoryChange = async (category:any) => {
+    const endPoint = category == "*"? "/products?populate=*" : `/products?populate=*&[filters][category][slug][$eq]=${category}`; 
+    let res = await fetchDataFromAPI(endPoint)
+    updateProducts(res);
   };
 
   const handleRatingChange = (rating:any) => {
@@ -36,8 +38,3 @@ export default async function Filter() {
     </div>
   );
 };
-
-async function getData() {
-  const products = await fetchDataFromAPI("/categories");
-  return products
-}

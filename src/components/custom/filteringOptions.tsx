@@ -23,7 +23,7 @@ const FilteringOptions: React.FC<FilteringOptionsProps> = ({
     <div className="flex gap-3 items-center">
       <div className="flex gap-3 items-center">
         <label htmlFor="category">Category:</label>
-        <Select>
+        <Select onValueChange={(e)=>handleCategoryChange(e)}>
           <SelectTrigger className="w-[90px]">
             <SelectValue placeholder="All"/>
           </SelectTrigger>
