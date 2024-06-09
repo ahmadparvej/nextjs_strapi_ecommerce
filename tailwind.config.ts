@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      height: {
+        'calcvh': 'calc(100vh - 120px)',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

@@ -24,7 +24,7 @@ export function CarouselPlugin() {
   ]
 
   const plugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: true })
+    Autoplay({ delay: 8000, stopOnInteraction: true })
   )
 
   return (

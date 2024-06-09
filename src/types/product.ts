@@ -8,7 +8,7 @@ export interface Product {
     attributes: ProductAttributes;
 }
 
-interface ProductAttributes {
+export interface ProductAttributes {
     name: string;
     createdAt: string;
     updatedAt: string;
@@ -17,7 +17,7 @@ interface ProductAttributes {
     price: number;
     available: boolean;
     description: Description[];
-    size: SizeData | null;
+    size: Size[] | null;
     original_price: number;
     image: ImageData;
     category: CategoryData;

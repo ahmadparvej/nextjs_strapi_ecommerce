@@ -5,7 +5,7 @@ import ProductsWrapper from '@/components/custom/productsWrapper';
 export default async function Home() {
 
   return (
-    <main className="md:w-4/5 md:m-auto">
+    <main className="container p-0">
       <CarouselPlugin/>
       <Filter/>
       <ProductsWrapper/>

@@ -2,11 +2,18 @@
 import { Product } from "@/types/product"
 import { Button } from '@/components/ui/button';
 import { TiShoppingCart } from "react-icons/ti";
+import Router from "next/router";
+import Link from 'next/link';
 
  export default function ProductCard(product:{ product: Product }) {
+
+  const handleProductClick = () => {
+    // Router
+  }
+
    return (
      <Card className="w-full max-w-sm">
-       <div className="aspect-w-4 aspect-h-5 relative">
+       <Link href={`/product/${product.product.attributes.slug}`} className="aspect-w-4 aspect-h-5 relative">
          <img
            alt="Product"
            className="object-cover rounded-t-lg"
@@ -18,7 +25,7 @@ import { TiShoppingCart } from "react-icons/ti";
            }}
            width={400}
          />
-       </div>
+       </Link>
        <CardHeader className="grid gap-1 p-4">
          <CardTitle className="text-xl">{product.product.attributes.name}</CardTitle>
          <CardDescription className="h-10">{product.product.attributes.description[0].children[0].text}</CardDescription>

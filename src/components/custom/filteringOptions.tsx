@@ -29,7 +29,7 @@ const FilteringOptions: React.FC<FilteringOptionsProps> = ({
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="*">All</SelectItem>
-            {categories.map((category: Category, index) => (
+            {categories?.map((category: Category, index) => (
               <SelectItem key={index} value={category.attributes.name}>{category.attributes.name}</SelectItem>
             ))}
           </SelectContent>

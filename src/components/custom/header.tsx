@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { navItem } from "@/types/navItem";
 import { usePathname } from 'next/navigation';
-import { TiShoppingCart } from "react-icons/ti";
+import Cart from './cart';
 
 const Header = () => {
 
@@ -40,7 +40,7 @@ const Header = () => {
   ]
 
   return (
-    <header className="sticky top-0 flex h-16 items-center gap-4 bg-primary rounded-sm px-4 md:w-4/5 md:m-auto md:p-3 z-50">
+    <header className="container selection:sticky top-0 flex h-16 items-center gap-4 bg-primary rounded-sm px-4 md:m-auto md:p-3 z-50">
         <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6 md:w-[400px]">
           <Link
             href="/"
@@ -110,7 +110,7 @@ const Header = () => {
               />
             </div>
           </form>
-          <TiShoppingCart className="h-8 w-8 text-white"/>
+          <Cart/>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="secondary" size="icon" className="rounded-full">
